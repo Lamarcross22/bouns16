@@ -1,10 +1,5 @@
 ﻿using System;
-using System.CodeDom.Compiler;
 using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Bouns16
 {
@@ -13,39 +8,65 @@ namespace Bouns16
         static void Main(string[] args)
         {
             //prompt
-            Console.WriteLine("Welcome to the Grand Circus Motors Admin console!");
-            Console.WriteLine("How many cars are you entering");
+            Console.WriteLine("Which car would you like?");
+            
             int x = Validator.Validator();
 
             //making a car list
-            List<Car> Lotz = new List<Car>();
+            List<Car> stock = new List<Car>();
 
-            //set amount of times from the users input
-            for (int i = 0; i < x; i++)
+
+            stock.Add(new UsedCars());
+            stock.Add(new UsedCars());
+            stock.Add(new UsedCars(stock[3], 15000));
+            stock.Add(new Car("Jaguar", "XF", 2019, 95000));
+            stock.Add(new Car());
+            stock.Add(new Car("Chevy", "Camero", 2016, 24000));
+
+
+
+            // ending prompt
+            string continueChoice = Validator.ContinueChoiceValidator("Would you like to buy another one?");
+
+
+
+            if (continueChoice.ToLower() == "y" | continueChoice.ToLower() == "yes")
+
             {
-                string str1;
-                string str2;
-                int int1;
-                double dbz;
-                Console.WriteLine("Please put your make");
-                str1=Console.ReadLine();
-                Console.WriteLine("please enter your model");
-                str2=Console.ReadLine();
-                Console.WriteLine("Please enter your year");
-                int1=int.Parse(Console.ReadLine());
-                Console.WriteLine("Pleae enter your price");
-                dbz=double.Parse(Console.ReadLine());
-                Lotz.Add(new Car(str1, str2, int1, dbz));
+
+                Console.Clear();
+
             }
-
-            foreach ( Car cars in Lotz)
-            {
-                cars.ToString();
-            }
-
-
-
-
         }
+
+
+
+        ////set amount of times from the users input
+        //for (int i = 0; i < x; i++)
+        //{
+        //    string str1;
+        //    string str2;
+        //    int int1;
+        //    double dbz;
+        //    Console.WriteLine("Please put your make");
+        //    str1=Console.ReadLine();
+        //    Console.WriteLine("please enter your model");
+        //    str2=Console.ReadLine();
+        //    Console.WriteLine("Please enter your year");
+        //    int1=int.Parse(Console.ReadLine());
+        //    Console.WriteLine("Pleae enter your price");
+        //    dbz=double.Parse(Console.ReadLine());
+        //    Lotz.Add(new Car(str1, str2, int1, dbz));
+        //}
+
+        //foreach ( Car cars in Lotz)
+        //{
+        //    cars.PrintInfo();
+        //}
+
+
+
+
     }
-}
+    }
+

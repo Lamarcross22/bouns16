@@ -8,10 +8,10 @@ namespace Bouns16
 {
     class Car
     {
-        private string str1;
-        private string str2;
-        private int int1;
-        private double dbz;
+        private string carMake;
+        private string carModel;
+        private int caryear;
+        private double price;
 
         // Properties
         public string Make { set; get; }
@@ -27,7 +27,7 @@ namespace Bouns16
             Make = "not assigned";
             Model = "not assigned";
             Year = 2018;
-            Price = 450000;
+            Price = 4500.00;
         }
 
         // overload constructor 
@@ -42,11 +42,11 @@ namespace Bouns16
 
         // virtual method
 
-        public virtual void ToString()
+        public virtual void PrintInfo()
         {
             Console.WriteLine($"{Make,-15} {Model,-15} {Year,-15} {Price,-15}");
         }
     }
 }
-    
+
 

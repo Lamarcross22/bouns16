@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace Bouns16
 {
@@ -24,10 +20,7 @@ namespace Bouns16
                         return x;
                     }
 
-                    else
-                    {
-                        Console.WriteLine("Value must be greater than zero!");
-                    }
+                    Console.WriteLine("Value must be greater than zero!");
                 }
                 catch (Exception e)
                 {
@@ -35,10 +28,53 @@ namespace Bouns16
                     //throw;
                 }
 
-                
+                string ContinueValidator(string askUser, string errorMessage)
+
+                {
+
+                    Console.WriteLine(askUser);
+
+                    while (true)
+
+                    {
+
+                        string userInput = Console.ReadLine();
+
+                        if (userInput == "")
+
+                        {
+
+                            Console.WriteLine(errorMessage);
+
+                        }
+
+                        else if (!Regex.IsMatch(userInput ?? throw new InvalidOperationException(), @"^[yY]$|^[yY][eE][sS]$|^[nN]$|^[nN][oO]$"))
+
+                        {
+
+                            Console.WriteLine(errorMessage);
+
+                        }
+
+                        else
+
+                        {
+
+                            return userInput;
+
+                        }
+
+                    }
+
+                }
+
             }
         }
 
-            
+
+        public static string ContinueChoiceValidator(string wouldYouLikeToBuyAnotherOne)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
